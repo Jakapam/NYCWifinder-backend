@@ -10,31 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019172823) do
+ActiveRecord::Schema.define(version: 20171020174548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "favorited_places", force: :cascade do |t|
-    t.integer "user_id"
-    t.float "latitude"
-    t.float "longitude"
+  create_table "boroughs", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "hotspots", force: :cascade do |t|
+    t.integer "zipcode_id"
     t.float "latitude"
     t.float "longitude"
+    t.string "service_provider"
+    t.string "closest_address"
+    t.string "service_type"
+    t.string "service_options"
+    t.string "city"
+    t.string "network_name"
+    t.string "hotspot_city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "username"
-    t.string "password_digest"
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "name"
+    t.integer "borough_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "zipcodes", force: :cascade do |t|
+    t.integer "zipcode_num"
+    t.integer "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
