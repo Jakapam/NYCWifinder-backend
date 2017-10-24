@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20171020174548) do
     t.string "closest_address"
     t.string "service_type"
     t.string "service_options"
-    t.string "city"
     t.string "network_name"
     t.string "hotspot_city_id"
     t.datetime "created_at", null: false
