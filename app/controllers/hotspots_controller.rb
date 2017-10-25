@@ -19,6 +19,13 @@ class HotspotsController < ApplicationController
   def zipcodes
     zipcode = Zipcode.find_by(zipcode_num: params[:zipcode])
 
-    render json: zipcode.hotspots
+    if zipcode
+      render json: zipcode.hotspots
+    else
+      message = { message: "No hotspots for that zipcode" }
+      render json: message
+    end
+
   end
+
 end

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/boroughs/:borough', to: 'hotspots#boroughs'
   get '/neighborhoods/:neighborhood', to: 'hotspots#neighborhoods'
   get '/zipcodes/:zipcode', to: 'hotspots#zipcodes'
+  get '/zipcodes', to: 'zipcodes#all' 
 end
